@@ -1,3 +1,15 @@
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Reinforcement Learning](https://img.shields.io/badge/Reinforcement%20Learning-FF6F00?style=for-the-badge&logo=ai&logoColor=white)
+![Multi-Armed Bandit](https://img.shields.io/badge/Multi--Armed%20Bandit-8A2BE2?style=for-the-badge)
+![Prescriptive Analytics](https://img.shields.io/badge/Prescriptive%20Analytics-0A9396?style=for-the-badge)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge)
+![Simulation](https://img.shields.io/badge/Simulation-2A9D8F?style=for-the-badge)
+![Optimization](https://img.shields.io/badge/Optimization-3E7CB1?style=flat-square)
+![AI Decision Systems](https://img.shields.io/badge/AI%20Decision%20Systems-6A4C93?style=flat-square)
+![Autonomous Vehicles](https://img.shields.io/badge/Autonomous%20Vehicles-FF4D6D?style=flat-square)
+
 🚗 Pedestrian Collision Avoidance for Autonomous Vehicles Using Multi-Armed Bandit Optimization
 Prescriptive Analytics Capstone Project – Reinforcement Learning for AV Evasive Maneuvers
 
