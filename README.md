@@ -1,5 +1,5 @@
 # Hi, I'm Brian Nguyen 👋  
-### MBA Candidate | Data, Business, & Management Analytics | Optimization • Simulation • AI-Enabled Decision Systems
+### MBA Candidate | Autonomous Vehicle and Robotics Professional (Zoox, Cruise, Google Robotics) | Optimization • Simulation • AI-Enabled Decision Systems
 
 I design and build analytical solutions that support real-world business decisions—from **optimization models (LP/MIP)** to **Monte Carlo risk simulations** to **reinforcement learning systems** that learn in real time.
 
