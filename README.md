@@ -13,6 +13,7 @@ This portfolio reflects my focus on becoming a **hybrid executive** who blends:
 **business acumen, analytical rigor, and AI-enabled decision-making.**
 
 📌 Featured work includes:  
+- *Prescriptive Analytics For Pedestrian Collision Avoidance — Multi-Armed Bandit Optimization*  
 - *Landhills Winery — Optimal Blending Model (LP/MIP)*  
 - *Konys Inc. — Multi-Quarter Procurement Simulation*  
 - *Online Advertising Reinforcement Learning — MAB Algorithms*
