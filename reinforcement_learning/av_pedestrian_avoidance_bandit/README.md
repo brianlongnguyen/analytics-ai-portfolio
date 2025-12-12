@@ -123,9 +123,7 @@ AV_MAB.ipynb — full implementation of the MAB model
 
 Presentation Deck — summarizes methodology & insights
 
-Written Technical Report — full academic-style documentation
-
-images/ — Q-value plots, cumulative reward curves, policy visuals (optional)
+Written Technical Report — full academic-style documentation containing images, Q-value plots, cumulative reward curves, and policy visuals.
 
 ⭐ Future Work
 
