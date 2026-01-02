@@ -1,4 +1,4 @@
-# 🚗 Prescriptive Analytics for Pedestrian Collision Avoidance
+# 🚗 Prescriptive Analytics for Pedestrian Collision Avoidance  
 **Multi-Armed Bandit Optimization for Autonomous Vehicle Safety Testing**
 
 ![Prescriptive Analytics](https://img.shields.io/badge/Prescriptive%20Analytics-0A9396?style=for-the-badge)
@@ -7,145 +7,125 @@
 ![Safety--Critical Systems](https://img.shields.io/badge/Safety--Critical%20Systems-D00000?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-This project applies prescriptive analytics and reinforcement learning to determine the safest evasive maneuver when an autonomous vehicle (AV) suddenly encounters a prone pedestrian on a downhill grade. Using an epsilon-greedy multi-armed bandit, the model learns optimal actions across 3,000 simulated mannequin encounters, updating Q-values after every trial.
+---
 
-The simulation is grounded in AV testing scenarios similar to those conducted by Zoox and motivated by real industry events where perception failures led to pedestrian injuries.
+## Executive Summary
 
-⭐ Problem Overview
+Autonomous vehicles operating in pedestrian environments must make real-time decisions under uncertainty where errors carry asymmetric and irreversible consequences.
 
-Autonomous vehicles must make rapid, safety-critical decisions when encountering unexpected obstacles. Real-world testing of pedestrian collision edge cases is limited by ethical and safety constraints; therefore simulation-based reinforcement learning provides a powerful alternative.
+This project demonstrates how **prescriptive analytics**, implemented through a **multi-armed bandit reinforcement learning framework**, can be used to evaluate and select evasive maneuvers that prioritize safety over performance metrics.
 
-Core Question:
+The emphasis is not on prediction accuracy or algorithmic novelty, but on **decision quality in safety-critical systems**.
 
-When a vehicle suddenly encounters a prone pedestrian while descending a downhill grade, which evasive maneuver minimizes expected harm across speeds of 25, 35, and 45 mph?
+---
 
-Available Actions:
+## The Decision Problem
 
-Hard Brake
+When a pedestrian enters a vehicle’s path unexpectedly, the system must choose an evasive maneuver:
 
-Swerve Left
+- Hard braking  
+- Swerving left  
+- Swerving right  
 
-Swerve Right
+Each action carries different risk profiles depending on vehicle speed, perception uncertainty, and reaction time.
 
-This aligns naturally with a multi-armed bandit formulation, where each maneuver is an “arm” with uncertain but learnable outcomes.
+The core question is not *which maneuver performs best on average*, but **which decision minimizes catastrophic outcomes under uncertainty**.
 
-⭐ Modeling Approach
-Reinforcement Learning Method
+---
 
-Algorithm: Epsilon-Greedy (ε = 0.1)
+## Why Heuristic or Rule-Based Logic Falls Short
 
-Learning: Incremental Q-value updates
+Hand-crafted rules and threshold-based logic struggle because:
 
-Simulated Encounters: 3,000
+- Outcome distributions are highly skewed  
+- Rare failures dominate system risk  
+- Average-case performance masks worst-case consequences  
+- Conservative decisions are often penalized in standard optimization frameworks  
 
-Speed States: 25 mph, 35 mph, 45 mph
+In safety-critical settings, **penalization structure matters more than raw reward**.
 
-Reward Design
+---
 
-Rewards reflect AV safety engineering priorities:
+## Modeling Approach
 
-Outcome	Reward
-Successful perception	+100
-Successful full stop	+50
-Successful swerve	+20
-Non-catastrophic failure	-20 to -100
-Collision	-700
-Catastrophic perception failure	-1000
+The problem is modeled as a **multi-armed bandit decision system** where:
 
-This structure strongly penalizes outcomes that would correlate with real-world harm.
+- Each evasive maneuver is treated as an arm  
+- The environment simulates thousands of vehicle–pedestrian encounters  
+- Rewards are shaped to heavily penalize collisions and near-misses  
 
-⭐ Environment Parameters
+An **ε-greedy learning policy** updates action values iteratively, allowing the system to learn which maneuver minimizes safety risk across scenarios.
 
-Each maneuver’s success probability changes with speed:
+This approach prioritizes **interpretability and policy stability** over deep model complexity.
 
-Stopping distance increases with speed
+---
 
-Lateral maneuver reliability decreases at higher speeds
+## Simulation Design
 
-Perception accuracy slightly degrades
+The simulation framework incorporates:
 
-Catastrophic failure probabilities increase at high speeds
+- Multiple vehicle speed regimes  
+- Stochastic pedestrian behavior  
+- Probabilistic perception and reaction delays  
+- Explicit safety-centric reward shaping  
 
-These relationships create meaningful differences in expected reward across actions.
+Over **3,000+ simulated encounters**, the system converges toward a consistent decision policy.
 
-⭐ Key Results
-🟩 Hard Brake emerged as the optimal action across all speed levels.
+---
 
-Despite lower stopping reliability at higher speeds, braking still dominated due to:
+## Key Insights
 
-Extreme penalties for failed swerves
+The learned policy reveals that:
 
-Escalating catastrophic impact likelihood
+- Hard braking dominates as the safest maneuver across most scenarios  
+- Swerving actions introduce higher variance and tail risk  
+- Conservative actions outperform aggressive maneuvers under asymmetric loss  
+- Penalizing rare catastrophic events reshapes optimal behavior  
 
-Strong positive reward for successful stopping or perception
+These outcomes are difficult to uncover using average-based evaluation alone.
 
-Policy Interpretation
+---
 
-25 mph: High chance of stopping — braking is overwhelmingly best
+## Managerial Implications
 
-35 mph: Failing to swerve is too risky → braking dominates
+From a decision-system perspective, this project illustrates that:
 
-45 mph: Swerves become highly unreliable → braking still yields highest expected safety
+- Safety optimization requires explicit treatment of downside risk  
+- Reward design encodes organizational values  
+- Interpretable policies are critical for validation and governance  
+- Conservative decisions can be optimal when failure costs dominate  
 
-Sensitivity Analysis Findings
+The value lies not in automation alone, but in **making safety tradeoffs explicit and defensible**.
 
-Perception failure penalties dominate action selection
+---
 
-Lateral control reliability would need major improvement to make swerving competitive
+## Scope & Limitations
 
-Stopping probability has a nonlinear contribution to expected reward
+This project is based on publicly discussed autonomous vehicle safety challenges and academic simulation techniques.
 
-This highlights which AV subsystems most influence safety.
+No proprietary data, internal testing systems, or confidential materials from Zoox, Cruise, or any other organization are included.
 
-⭐ Why This Matters
+All scenarios and results are illustrative and intended to demonstrate methodology rather than production-ready deployment.
 
-This project demonstrates how prescriptive analytics + reinforcement learning can support AV safety governance:
+---
 
-Identifies which maneuvers minimize expected harm
+## Repository Contents
 
-Helps AV teams evaluate risk without dangerous real-world testing
+- `av_pedestrian_avoidance_bandit.ipynb` — simulation and learning framework  
+- `README.md` — executive-level explanation of the decision system  
 
-Provides a transparent, simulation-based decision framework
+---
 
-Supports prioritization of engineering improvements (braking, perception, lateral control)
+## How to Run
 
-It showcases the power of reinforcement learning for rare, catastrophic edge-case analysis, where traditional supervised learning lacks sufficient data.
+1. Open the notebook in Jupyter or JupyterLab  
+2. Install required dependencies (e.g., NumPy, Pandas)  
+3. Run cells top-to-bottom to reproduce the simulation results  
 
-⭐ Files in This Repository
+---
 
-AV_MAB.ipynb — full implementation of the MAB model
+## Closing Note
 
-Presentation Deck — summarizes methodology & insights
+This project serves as a foundation for understanding how **learning-based decision systems behave under asymmetric risk**.
 
-Written Technical Report — full academic-style documentation containing images, Q-value plots, cumulative reward curves, and policy visuals.
-
-⭐ Future Work
-
-Potential enhancements:
-
-Multi-step RL (Q-learning, SARSA, DQN, PPO)
-
-Continuous steering/braking action space
-
-Integration with real AV sensor logs
-
-Road geometry and curvature-based decision conditioning
-
-⭐ How to Run
-
-Open the notebook: AV_MAB.ipynb
-
-Install dependencies:
-
-pip install numpy matplotlib pandas
-
-
-Run all cells to reproduce the 3,000-episode learning simulation.
-
-⭐ Contact
-
-For questions or collaboration:
-Brian Nguyen – MBA, Management Analytics
-LinkedIn: https://www.linkedin.com/in/brianlongnguyen
-
-GitHub: https://github.com/brianlongnguyen
+Together with economic optimization and procurement risk modeling projects in this portfolio, it reflects a consistent approach to **designing decision systems where tradeoffs matter more than predictions**.
