@@ -1,6 +1,11 @@
 # 🍇 Landhills Winery — Optimal Blending Plan  
 **Prescriptive Analytics Using Linear & Mixed-Integer Optimization**
 
+![Prescriptive Analytics](https://img.shields.io/badge/Prescriptive%20Analytics-0A9396?style=for-the-badge)
+![Optimization](https://img.shields.io/badge/Optimization-6A4C93?style=for-the-badge)
+![Operations Research](https://img.shields.io/badge/Operations%20Research-8E44AD?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
 ---
 
 ## Executive Summary
