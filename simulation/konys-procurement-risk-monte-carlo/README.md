@@ -1,4 +1,10 @@
-# Konys Inc. — Procurement Risk Monte Carlo Simulation (Contracts + Spot Market)
+# 📦 Konys Inc. — Procurement Risk Under Uncertainty
+**Monte Carlo Simulation for Contract Design and Risk Transfer**
+
+![Prescriptive Analytics](https://img.shields.io/badge/Prescriptive%20Analytics-0A9396?style=for-the-badge)
+![Simulation](https://img.shields.io/badge/Simulation-2A9D8F?style=for-the-badge)
+![Risk Management](https://img.shields.io/badge/Risk%20Management-C1121F?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 ## Executive Summary
 Procurement leaders often face a repeatable tradeoff: commit early to lock in price and supply, or stay flexible and risk paying volatile spot prices. This project builds a Monte Carlo simulation to evaluate procurement policies under uncertainty and quantify both expected profit and downside risk.
