@@ -1,11 +1,11 @@
-![Reinforcement Learning](https://img.shields.io/badge/Reinforcement%20Learning-1F2937?style=for-the-badge)
-![Multi-Armed Bandits](https://img.shields.io/badge/Multi--Armed%20Bandits-374151?style=for-the-badge)
-![Prescriptive Analytics](https://img.shields.io/badge/Prescriptive%20Analytics-4B5563?style=for-the-badge)
-![Simulation](https://img.shields.io/badge/Simulation-6B7280?style=for-the-badge)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+# 🚗 Prescriptive Analytics for Pedestrian Collision Avoidance
+**Multi-Armed Bandit Optimization for Autonomous Vehicle Safety Testing**
 
-🚗 Pedestrian Collision Avoidance for Autonomous Vehicles Using Multi-Armed Bandit Optimization
-Prescriptive Analytics Capstone Project – Reinforcement Learning for AV Evasive Maneuvers
+![Prescriptive Analytics](https://img.shields.io/badge/Prescriptive%20Analytics-0A9396?style=for-the-badge)
+![Reinforcement Learning](https://img.shields.io/badge/Reinforcement%20Learning-2962FF?style=for-the-badge)
+![Simulation](https://img.shields.io/badge/Simulation-2A9D8F?style=for-the-badge)
+![Safety--Critical Systems](https://img.shields.io/badge/Safety--Critical%20Systems-D00000?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 This project applies prescriptive analytics and reinforcement learning to determine the safest evasive maneuver when an autonomous vehicle (AV) suddenly encounters a prone pedestrian on a downhill grade. Using an epsilon-greedy multi-armed bandit, the model learns optimal actions across 3,000 simulated mannequin encounters, updating Q-values after every trial.
 
