@@ -129,3 +129,13 @@ All scenarios and results are illustrative and intended to demonstrate methodolo
 This project serves as a foundation for understanding how **learning-based decision systems behave under asymmetric risk**.
 
 Together with economic optimization and procurement risk modeling projects in this portfolio, it reflects a consistent approach to **designing decision systems where tradeoffs matter more than predictions**.
+
+---
+
+## Applicability
+
+Decision Type:
+Adaptive policies under asymmetric safety risk and real-time uncertainty.
+
+Industry Contexts:
+Autonomous systems, security decisioning, fraud intervention, healthcare triage, and trading execution.
