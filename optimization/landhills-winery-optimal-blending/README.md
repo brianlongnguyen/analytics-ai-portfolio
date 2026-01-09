@@ -122,3 +122,13 @@ All data used are synthetic or illustrative, and results are not intended to rep
 This project complements safety-critical decision work by illustrating how **optimization clarifies tradeoffs** in economic settings where feasibility and constraints, rather than prediction accuracy, determine outcomes.
 
 Together, these projects reflect a consistent approach to **decision quality under uncertainty and constraints** across domains.
+
+---
+
+## Applicability
+
+Decision Type:
+Feasibility and allocation under regulatory, supply, and product constraints.
+
+Industry Contexts:
+Manufacturing, supply chain formulation, energy/commodity blending, food/ag, and pharmaceutical batching.
