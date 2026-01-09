@@ -51,3 +51,13 @@ For a high-volume component with volatile demand and volatile spot prices:
 This project demonstrates procurement decision modeling techniques (Monte Carlo simulation + contract logic). It does not include proprietary data, internal supplier terms, or case text.
 
 **Note:** The original case used for classroom discussion is copyrighted and is not reproduced here.
+
+---
+
+## Applicability
+
+Decision Type:
+Risk transfer vs spot exposure with contractual and market uncertainty.
+
+Industry Contexts:
+Procurement, vendor contracting, cloud capacity commitments, energy/commodity markets, and hardware supply chains.
