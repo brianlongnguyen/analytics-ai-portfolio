@@ -34,9 +34,10 @@ This formulation enforces feasibility through:
 ## 🗺️ Network Diagram
 
 <p align="center">
-  <img src="assets/network_flow_diagram.png" width="500">
+  <img src="network_flow_diagram.png" width="650"/>
+  <br>
+  <em>Figure: Capacity-constrained routing between suppliers, hubs, and customers.</em>
 </p>
-
 *(Diagram illustrates supplier → hub → customer flow with route capacities & cost structure.)*
 
 ---
@@ -167,4 +168,3 @@ This project represents the **routing allocation** decision class in the broader
 - **Investment under uncertainty** (Moore Pharmaceuticals — Monte Carlo)
 
 ---
-
