@@ -34,7 +34,7 @@ This formulation enforces feasibility through:
 ## 🗺️ Network Diagram
 
 <p align="center">
-  <img src="network_flow_diagram.png" width="650"/>
+  <img src="network_flow_diagram.png.png" width="650"/>
   <br>
   <em>Figure: Capacity-constrained network routing from suppliers, through hubs, to customers, with binding bottlenecks highlighted.</em>
 </p>
