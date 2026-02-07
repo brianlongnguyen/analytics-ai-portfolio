@@ -1,168 +1,69 @@
-# 🚚 **Capacity-Constrained Network Flow Optimization (LP)**
+# 🌐 Capacity-Constrained Network Flow Optimization
+### Minimum Cost Routing Under Network Constraints
 
-**Decision system for routing flow across multi-node networks under capacity and cost constraints.**
-
----
-
-## 🔖 Tech & Method Badges
-
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![Linear Programming](https://img.shields.io/badge/LP-Optimization-blue)
-![PuLP](https://img.shields.io/badge/PuLP-00457C)
-![Decision Science](https://img.shields.io/badge/Decision%20Science-000000)
-![Operations Research](https://img.shields.io/badge/Operations%20Research-6A5ACD)
+![Optimization](https://img.shields.io/badge/Optimization-Network%20Flow-0A9396?style=for-the-badge)
+![Operations Research](https://img.shields.io/badge/Operations%20Research-2962FF?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 ---
 
-## 🧩 Problem Framing
+## Executive Summary
 
-In multi-node networks, flow must be allocated across competing paths with different cost structures and physical limits.  
-The central question is:
+Many operational problems involve moving goods or information across networks where capacity constraints determine outcomes.
 
-> *How should we route flow through the network to meet demand at minimum total cost while respecting real-world constraints?*
-
-This formulation enforces feasibility through:
-
-- Supplier → Hub capacities  
-- Hub → Customer capacities  
-- Demand fulfillment  
-- Flow conservation at hub  
-- Non-negativity  
+This project optimizes flows through a constrained network to minimize total routing cost.
 
 ---
 
-## 🗺️ Network Diagram
+## Decision Problem
 
-<p align="center">
-  <img src="network_flow_diagram.png.png" width="650"/>
-  <br>
-  <em>Figure: Capacity-constrained network routing from suppliers, through hubs, to customers, with binding bottlenecks highlighted.</em>
-</p>
----
-
-## 🔢 Mathematical Form (LP)
-
-**Decision variables**  
-\( x_{ij} = \text{units shipped from node } i \text{ to node } j \)
-
-**Objective (minimize total transportation cost)**  
-\( \min \sum_{(i,j) \in \text{routes}} c_{ij} \cdot x_{ij} \)
-
-**Subject to constraints**
-
-Capacity:  
-\( x_{ij} \leq \text{cap}_{ij} \)
-
-Demand satisfaction:  
-\( \sum_i x_{iC} = D_C \)
-
-Flow conservation (hub):  
-\( \sum_i x_{iH} = \sum_j x_{Hj} \)
-
-Non-negativity:  
-\( x_{ij} \geq 0 \)
+Determine how flows should be allocated across network paths to satisfy demand at minimum cost while respecting capacity constraints.
 
 ---
 
-## 🧮 Implementation Details
+## Approach
 
-- Formulated as a **Linear Program (LP)**
-- Solved using **PuLP + CBC**
-- Reports:
-  - route-level flows
-  - total network cost
-  - constraint utilization (binding vs slack)
+A network optimization model routes flows subject to:
 
-Optional extensions supported in notebook:
+- Edge capacity constraints
+- Flow conservation requirements
+- Demand satisfaction
 
-- MIP variant (capacity decisions + fixed costs)
-- Sensitivity on capacity
-- Multi-sourcing structures
+Optimization identifies minimal cost allocations.
 
 ---
 
-## 📊 Outputs (Executive-Facing)
+## Impact / Key Findings
 
-The notebook reports:
+Results reveal:
 
-✔ Optimal allocation across network  
-✔ Binding vs non-binding constraints  
-✔ Total cost decomposition  
-✔ Flow visualization  
-✔ Utilization insight  
+- Performance is dictated by bottlenecks.
+- Increasing non-binding capacity yields minimal improvement.
+- Targeted relief at constraints improves performance.
 
 ---
 
-## 🧭 Applicability
+## 📐 Mathematical Formulation
 
-**Decision Type:**  
-Global optimization of routing and capacity in interconnected systems.
+\[
+\min \sum c_{ij}x_{ij}
+\]
 
-**Industry Contexts:**  
-Logistics networks, transportation, distributed compute routing, telecommunications, and energy/grid planning.
+Subject to flow conservation and capacity constraints.
 
 ---
 
-## 🛠️ Tech Stack
+## 🌍 Industry Applicability
 
-**Languages & Libraries**
-- Python
-- PuLP
-- NumPy
-- Pandas
-- Matplotlib
+Applies to:
 
-**Optimization**
-- Linear Programming (LP)
-
-**Solver**
-- CBC (open-source)
+- Logistics routing
+- Telecommunications
+- Energy distribution
+- Transportation systems
 
 ---
 
 ## ▶️ How to Run
 
-**Install dependencies**
-```bash
-pip install pulp numpy pandas matplotlib
-```
-
-**Execute notebook**
-```
-network_flow_model_refactored.ipynb
-```
-
-No external data required.
-
----
-
-## 📝 Repository Structure
-
-```
-network_flow/
-│
-├── network_flow_model_refactored.ipynb   # model + outputs
-├── assets/
-│   └── network_flow_diagram.png          # diagram used above
-└── README.md
-```
-
----
-
-## 🔒 Disclosure
-
-Synthetic values used to illustrate route capacity and cost allocation.  
-No proprietary network data or operational constraints included.
-
----
-
-## 🧩 Role in Portfolio
-
-This project represents the **routing allocation** decision class in the broader portfolio, complementing:
-
-- **Risk transfer** (Konys — Monte Carlo)
-- **Blending/feasibility** (Landhills — LP/MIP)
-- **Real-time adaptive control** (AV/MAB)
-- **Investment under uncertainty** (Moore Pharmaceuticals — Monte Carlo)
-
----
+Clone repo → run notebook → view results.
