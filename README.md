@@ -22,6 +22,8 @@ The work spans **reinforcement learning, optimization, and simulation**, with ap
 - 🌐 Network Flow Optimization — Capacity-Constrained Routing
 - 📦 Konys Procurement Risk — Monte Carlo Simulation
 
+--- 
+
 ## Core Decision Frameworks
 
 ### 🚗 Prescriptive Analytics for Pedestrian Collision Avoidance (Multi-Armed Bandits)
