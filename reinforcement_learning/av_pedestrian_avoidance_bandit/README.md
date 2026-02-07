@@ -1,141 +1,126 @@
 # 🚗 Prescriptive Analytics for Pedestrian Collision Avoidance  
-**Multi-Armed Bandit Optimization for Autonomous Vehicle Safety Testing**
+### Multi-Armed Bandit Optimization for Autonomous Vehicle Safety Testing
 
-![Prescriptive Analytics](https://img.shields.io/badge/Prescriptive%20Analytics-0A9396?style=for-the-badge)
 ![Reinforcement Learning](https://img.shields.io/badge/Reinforcement%20Learning-2962FF?style=for-the-badge)
+![Prescriptive Analytics](https://img.shields.io/badge/Prescriptive%20Analytics-0A9396?style=for-the-badge)
 ![Simulation](https://img.shields.io/badge/Simulation-2A9D8F?style=for-the-badge)
-![Safety--Critical Systems](https://img.shields.io/badge/Safety--Critical%20Systems-D00000?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Autonomous Vehicles](https://img.shields.io/badge/Autonomous%20Vehicles-FF4D6D?style=for-the-badge)
 
 ---
 
 ## Executive Summary
 
-Autonomous vehicles operating in pedestrian environments must make real-time decisions under uncertainty where errors carry asymmetric and irreversible consequences.
+Autonomous vehicles must make rapid decisions in uncertain environments where mistakes carry asymmetric consequences. In pedestrian encounter scenarios, the system must select evasive maneuvers that minimize collision risk while maintaining vehicle stability and passenger safety.
 
-This project demonstrates how **prescriptive analytics**, implemented through a **multi-armed bandit reinforcement learning framework**, can be used to evaluate and select evasive maneuvers that prioritize safety over performance metrics.
+This project simulates thousands of autonomous vehicle–pedestrian encounters and applies a reinforcement learning framework to determine which evasive maneuver consistently produces the safest outcome.
 
-The emphasis is not on prediction accuracy or algorithmic novelty, but on **decision quality in safety-critical systems**.
-
----
-
-## The Decision Problem
-
-When a pedestrian enters a vehicle’s path unexpectedly, the system must choose an evasive maneuver:
-
-- Hard braking  
-- Swerving left  
-- Swerving right  
-
-Each action carries different risk profiles depending on vehicle speed, perception uncertainty, and reaction time.
-
-The core question is not *which maneuver performs best on average*, but **which decision minimizes catastrophic outcomes under uncertainty**.
+Rather than optimizing for speed or efficiency, the model prioritizes **risk-aware decision-making**, illustrating how simulation and learning algorithms can support safety-critical operational decisions.
 
 ---
 
-## Why Heuristic or Rule-Based Logic Falls Short
+## Decision Problem
 
-Hand-crafted rules and threshold-based logic struggle because:
+When a pedestrian suddenly appears in a vehicle’s path, the system must choose among discrete evasive actions:
 
-- Outcome distributions are highly skewed  
-- Rare failures dominate system risk  
-- Average-case performance masks worst-case consequences  
-- Conservative decisions are often penalized in standard optimization frameworks  
+- Hard braking
+- Swerving left
+- Swerving right
 
-In safety-critical settings, **penalization structure matters more than raw reward**.
+Each action carries uncertain outcomes influenced by vehicle speed, perception reliability, and environmental conditions.
 
----
-
-## Modeling Approach
-
-The problem is modeled as a **multi-armed bandit decision system** where:
-
-- Each evasive maneuver is treated as an arm  
-- The environment simulates thousands of vehicle–pedestrian encounters  
-- Rewards are shaped to heavily penalize collisions and near-misses  
-
-An **ε-greedy learning policy** updates action values iteratively, allowing the system to learn which maneuver minimizes safety risk across scenarios.
-
-This approach prioritizes **interpretability and policy stability** over deep model complexity.
+The decision challenge is selecting the maneuver that minimizes collision probability across varying scenarios.
 
 ---
 
-## Simulation Design
+## Approach
 
-The simulation framework incorporates:
+A simulation environment generates **3,000+ encounter scenarios** across different speeds and conditions.
 
-- Multiple vehicle speed regimes  
-- Stochastic pedestrian behavior  
-- Probabilistic perception and reaction delays  
-- Explicit safety-centric reward shaping  
+A **multi-armed bandit (MAB)** reinforcement learning agent evaluates actions using an **ε-greedy learning policy**, balancing:
 
-Over **3,000+ simulated encounters**, the system converges toward a consistent decision policy.
+- Exploration of alternative actions
+- Exploitation of historically safer choices
 
----
+After each simulated encounter:
 
-## Key Insights
+- Rewards penalize collisions and unsafe outcomes
+- Action value estimates are updated
+- Policy gradually converges toward safer decisions
 
-The learned policy reveals that:
-
-- Hard braking dominates as the safest maneuver across most scenarios  
-- Swerving actions introduce higher variance and tail risk  
-- Conservative actions outperform aggressive maneuvers under asymmetric loss  
-- Penalizing rare catastrophic events reshapes optimal behavior  
-
-These outcomes are difficult to uncover using average-based evaluation alone.
+This framework mimics how safety policies improve through repeated testing and learning.
 
 ---
 
-## Managerial Implications
+## Impact / Key Findings
 
-From a decision-system perspective, this project illustrates that:
+Simulation results consistently show that:
 
-- Safety optimization requires explicit treatment of downside risk  
-- Reward design encodes organizational values  
-- Interpretable policies are critical for validation and governance  
-- Conservative decisions can be optimal when failure costs dominate  
+- **Hard braking dominates as the safest evasive action** across most scenarios.
+- A small subset of constraints drives safety outcomes.
+- Policy learning converges rapidly once high-risk actions are penalized appropriately.
 
-The value lies not in automation alone, but in **making safety tradeoffs explicit and defensible**.
+The broader insight is that **reward design and risk weighting often matter more than algorithm complexity** in safety-critical systems.
 
----
-
-## Scope & Limitations
-
-This project is based on publicly discussed autonomous vehicle safety challenges and academic simulation techniques.
-
-No proprietary data, internal testing systems, or confidential materials from Zoox, Cruise, or any other organization are included.
-
-All scenarios and results are illustrative and intended to demonstrate methodology rather than production-ready deployment.
+The project demonstrates how simulation-based learning can guide decision policy development before real-world deployment.
 
 ---
 
-## Repository Contents
+## 📐 Mathematical Formulation (Simplified)
 
-- `av_pedestrian_avoidance_bandit.ipynb` — simulation and learning framework  
-- `README.md` — executive-level explanation of the decision system  
+The problem is modeled as a multi-armed bandit decision process.
+
+At each encounter, an action \(a\) is selected to maximize expected safety reward:
+
+\[
+\max_a \; E[R(a)]
+\]
+
+Action value estimates are updated incrementally:
+
+\[
+Q_{t+1}(a) = Q_t(a) + \alpha (R_t - Q_t(a))
+\]
+
+where:
+
+- \(Q(a)\) is the estimated value of action \(a\)
+- \(R_t\) is the observed reward
+- \(\alpha\) is the learning rate
+
+An **ε-greedy policy** balances exploration and exploitation.
 
 ---
 
-## How to Run
+## 🌍 Industry Applicability
 
-1. Open the notebook in Jupyter or JupyterLab  
-2. Install required dependencies (e.g., NumPy, Pandas)  
-3. Run cells top-to-bottom to reproduce the simulation results  
+Although demonstrated in autonomous vehicle safety testing, this decision framework generalizes to environments where uncertainty and asymmetric risk dominate.
+
+Examples include:
+
+- Autonomous systems and robotics
+- Industrial safety and automation
+- Defense and unmanned systems
+- Healthcare decision support
+- Real-time operational control systems
+
+Any domain requiring rapid decisions under uncertain risk can apply similar learning frameworks.
 
 ---
 
-## Closing Note
+## ▶️ How to Run
 
-This project serves as a foundation for understanding how **learning-based decision systems behave under asymmetric risk**.
-
-Together with economic optimization and procurement risk modeling projects in this portfolio, it reflects a consistent approach to **designing decision systems where tradeoffs matter more than predictions**.
+1. Clone the repository:  git clone https://github.com/brianlongnguyen/analytics-ai-portfolio.git
+2. Navigate to the project directory:  cd reinforcement_learning/av_pedestrian_avoidance_bandit
+3. Launch the notebook:  jupyter notebook
+4. Run all cells to reproduce simulation results and learning behavior.
 
 ---
 
-## Applicability
+## ⚠️ Disclosure & Confidentiality Notice
 
-Decision Type:
-Adaptive policies under asymmetric safety risk and real-time uncertainty.
+This project is based on publicly discussed autonomous vehicle safety challenges and academic simulation methods.
 
-Industry Contexts:
-Autonomous systems, security decisioning, fraud intervention, healthcare triage, and trading execution.
+No proprietary data, internal testing material, or confidential information from Zoox or any other organization is included.
+
+The work is intended solely for educational and demonstration purposes.
