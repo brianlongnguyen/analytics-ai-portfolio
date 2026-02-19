@@ -5,7 +5,7 @@
 
 ## Overview
 
-This portfolio focuses on **prescriptive and decision-centric analytics** — where uncertainty, constraints, and asymmetric risk shape outcomes more than point predictions.
+This portfolio demonstrates how **AI and analytics** support operational and strategic decisions — where uncertainty, constraints, and asymmetric risk shape outcomes more than point predictions.
 
 Rather than optimizing metrics in isolation, the projects below emphasize how decisions should be structured when:
 - information is incomplete,
